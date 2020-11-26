@@ -6,6 +6,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TodoInputComponent } from './components/todo-input/todo-input.component';
 import {TodoService} from './services/todo.service';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
     HeaderComponent,
     TodoInputComponent,
     TodoItemComponent,
+    TodoListComponent,
 
   ],
   imports: [
