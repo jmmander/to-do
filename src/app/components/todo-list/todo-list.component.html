@@ -1,2 +1,15 @@
+<div class="filter"> 
+<button class="btn all" (click)="toggleVis('all')"> All </button>
+<button class="btn incompleteOnly" (click)="toggleVis('incomplete')"> Incomplete </button>
+<button class="btn completeOnly" (click)="toggleVis('complete')">Complete</button>
+</div>
+<ng-container class="list" *ngIf="incomplete">
 <div *ngFor="let todo of todos">
-    <app-todo-item [todo]="todo"></app-todo-item>
+    <app-todo-item [todo]="todo" [complete]="false"></app-todo-item>
+</div>
+</ng-container>
+<ng-container class="list" *ngIf="complete">
+<div *ngFor="let todo of completeTodos">
+    <app-todo-item [todo]="todo" [complete]="true"></app-todo-item>
+    </div>
+</ng-container>

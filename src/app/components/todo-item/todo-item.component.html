@@ -1,3 +1,14 @@
-<div class="todoWrapper" >
-    <button class="removeTodo" (click)="removeTodo()">Remove</button> <span>{{todo.text}}</span>
+<div class="todoWrapper" (clickOutside)="saveEdit()" (keyup.enter)="saveEdit()">
+    <a class="edit" (click)="makeEditable()"> <fa-icon [icon]=faEdit> </fa-icon></a>
+    <input type="text" class="todoItem" value={{todo.text}} [(ngModel)]="todo.text" [readonly]="readOnly"/>
+    <ng-container *ngIf="!complete">
+        <button class="btn completeTodo" (click)="completeTodo(todo)">✔</button>  
+        <button class="btn removeTodo" (click)="removeTodo('incomplete')">X</button>  
+    </ng-container>
+    <ng-container *ngIf="complete">
+        <button class="btn uncompleteTodo" (click)="uncompleteTodo(todo)">✔</button>  
+        <button class="btn removeTodo" (click)="removeTodo('complete')">X</button>  
+    </ng-container>
+
+
 </div>
