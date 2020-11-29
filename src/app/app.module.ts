@@ -9,11 +9,13 @@ import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ClickoutsideDirective } from './clickoutside.directive';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   exports: [ClickoutsideDirective],
-  
+
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -26,7 +28,8 @@ import { ClickoutsideDirective } from './clickoutside.directive';
   imports: [
     BrowserModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule,
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]

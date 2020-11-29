@@ -27,13 +27,13 @@
   }
 
 .incompleteOnly {
-    color: rgba(187, 48, 78, 0.5);
-    border-color: rgba(187, 48, 78, 0.5);
+    color: rgba(235, 130, 33, 0.5);
+    border-color: rgba(235, 130, 33, 0.5);
   }
 
   .incompleteOnly:hover {
-    color: rgba(187, 48, 78, 0.9);
-    border-color: rgba(187, 48, 78, 0.9);
+    color: rgba(235, 130, 33, 0.9);
+    border-color: rgba(235, 130, 33, 0.9);
     font-weight: bold;
   }
 

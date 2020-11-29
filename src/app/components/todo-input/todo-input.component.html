@@ -1,4 +1,13 @@
 <div class="todo-input-wrapper">
-    <input type="text" [(ngModel)]="todoText" value={{todoText}} placeholder="I will..." (keyup.enter)="addTodo()"/>
-    <button class="btn btn-primary" (click)="addTodo()"> Submit </button>
+    <form [formGroup]="todoForm" (ngSubmit)="addTodo(todoForm.value)" class="formInputs" >
+        <input type="text" class="textInput" formControlName="todoText" placeholder="I will..." />
+        <select class="priorityInput" formControlName="todoPriority" (click)="changeColor()" id="prioritySelector">
+            <option value="null" selected hidden >Priority </option> 
+            <option value="high">High </option>
+            <option value="med">Medium </option>
+            <option value="low">Low </option>
+        </select>
+        <input type="text" formControlName="todoDueDate" class="dateInput" placeholder="Due Date" onfocus="(this.type='date')" [min]="today"/>
+        <button type="submit" class="btn btn-primary" > Submit </button>
+    </form>
 </div>

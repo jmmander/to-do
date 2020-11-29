@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {Todo} from '../../classes/todo'
 import { TodoService } from '../../services/todo.service'
 
@@ -9,34 +9,32 @@ import { TodoService } from '../../services/todo.service'
 })
 export class TodoListComponent implements OnInit {
 
+  showIncomplete!: boolean;
+  showComplete!: boolean;;
 
-  todos: Todo[];
-  completeTodos: Todo[];
-  
-  all:boolean=false;
-  incomplete:boolean=true;
-  complete:boolean=false;
+  todos!: Todo[];
 
-  constructor(private todoService: TodoService) { }
+  constructor(private todoService: TodoService) { 
+    this.showComplete = false;
+    this.showIncomplete = true;
+  }
 
   ngOnInit(): void {
     this.todos = this.todoService.getTodos();
-    this.completeTodos = this.todoService.getComplete();
-
   }
 
   toggleVis(selection: string): void {
     if (selection === "complete") {
-      this.complete=true;
-      this.incomplete=false
+      this.showComplete = true;
+      this.showIncomplete = false;
     }
     else if (selection === "all") {
-      this.complete=true;
-      this.incomplete=true
+      this.showComplete = true;
+      this.showIncomplete = true;
     }
     else {
-      this.incomplete=true
-      this.complete=false;
+      this.showIncomplete = true;
+      this.showComplete = false;
     }
     
     

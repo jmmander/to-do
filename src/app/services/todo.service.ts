@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Todo } from '../classes/todo'
+import { Todo, priority } from '../classes/todo'
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,52 +9,41 @@ export class TodoService {
 
   todos: Todo[];
   nextId: number
-  completeTodos: Todo[];
 
   constructor() { 
-    this.todos = [
-      new Todo(0, "first todo"),
-      new Todo(1, "second todo"),
-      new Todo(2, "third todo")
-    ];
+    this.todos = [];
+    this.nextId = 0;
 
-    this.nextId = 3;
 
-    this.completeTodos = [];
-  }
-
-  addTodo(text: string): void {
-    let todo = new Todo(this.nextId, text);
-    this.todos.push(todo);
-    this.nextId++;
   }
 
   getTodos(): Todo[] {
     return this.todos;
   }
 
-  getComplete(): Todo[] {
-    return this.completeTodos;
+  addTodo(todoText: string, todoPriority: priority, todoDueDate: Date, todoComplete: boolean): void {
+    let todo = new Todo(this.nextId, todoText, todoPriority, todoDueDate, todoComplete);
+    this.todos.push(todo);
+    console.log("adding to todos")
+    console.log(this.todos)
+    this.nextId++;
   }
 
-  addComplete(todo: Todo) {
-    this.completeTodos.push(todo);
+  removeTodo(todo: Todo) : void {
+    var index = this.todos.indexOf(todo);
+    this.todos.splice(index, 1)
   }
 
-  removeTodo(todo: Todo, listname: string) : void {
-    if (listname === "incomplete") {
-      var index = this.todos.indexOf(todo);
-      this.todos.splice(index, 1);
-    } else {
-      var index = this.completeTodos.indexOf(todo);
-      this.todos.splice(index, 1);
-    }
-    
-  };
 
-  removeComplete(todo: Todo) : void {
-    var index = this.completeTodos.indexOf(todo);
-    this.completeTodos.splice(index, 1)
+  updateTodo(updatedText: string, id: number) : void {
+    console.log("before")
+    let index = this.todos.findIndex(todo => {todo.id === id});
+    console.log(this.todos[index]) 
+    this.todos[index].text = updatedText;
+    console.log("after")
+    console.log(this.todos[index]) 
   }
+
+
   }
 
