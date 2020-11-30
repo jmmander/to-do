@@ -22,7 +22,7 @@ export class TodoInputComponent implements OnInit {
   ngOnInit(): void {
     this.todoForm = this.formBuilder.group({
       todoText: ["", [Validators.required, Validators.minLength(2)]],
-      todoPriority: [null, [Validators.required]],
+      todoPriority: [null],
       todoDueDate: [null],
       
       })

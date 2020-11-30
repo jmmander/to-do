@@ -49,7 +49,14 @@ export class TodoItemComponent implements OnInit {
   }
 
   getPriority() {
-    return this.todo.priority.toString();
+    if (this.todo.priority !== null)
+    {return this.todo.priority.toString();}
+    else {
+      return "noPriority";
+    }
+ 
+      
+    
     
   }
 

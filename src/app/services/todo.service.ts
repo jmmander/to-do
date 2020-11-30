@@ -13,8 +13,6 @@ export class TodoService {
   constructor() { 
     this.todos = [
       new Todo(0,"test 1", "high", null, false),
-      new Todo(1,"test 2", "medium", new Date(), false),
-      new Todo(1,"test 2", "low", new Date(), true)
     ];
     this.nextId = 0;
 

@@ -6,6 +6,7 @@
   }
   .button-container {
     align-items: right;
+    margin-bottom: 10px;
   }
   .todoItem:read-only{
     outline: none;
@@ -31,20 +32,19 @@
 
   .btn {
     margin-right: 10px;
-
     outline: none;
     box-shadow: none;
     border-width: 2px;
     border-radius: 3px;
     border-style: solid;
-    padding: 8px;
+    padding: 5px 8px 9px 8px;
     background-color: transparent;
     width: 36px;
     height: 36px;
   }
 
   .removeTodo {
-    color: rgba(187, 48, 78, 0.5);
+    color: rgba(187, 48, 78, 0.5)!important;
     border-color: rgba(187, 48, 78, 0.5);
     border-width: 2px;
     border-radius: 3px;
@@ -52,9 +52,8 @@
     background-color: transparent;
     width: 36px;
     height: 36px;
-    padding: 5px 9px 8px 9px;
+    padding: 5px 9px 9px 9px;
     margin-right: 10px;
-    margin-bottom: 10px;
     outline: none;
     box-shadow: none;
   }
@@ -96,24 +95,27 @@
 }
 
 .priorityFlag  {
-  margin-bottom: 10px;
+ 
   outline: none;
   box-shadow: none;
   border: none;
+  padding-right: 0;
 }
 
 .todoDate {
-  margin-bottom: 10px;
+  
   outline: none;
   box-shadow: none;
   border: none;
-  overflow: hidden;
   font-size: smaller;
-  max-width: fit-content;
 
 }
 
 .todoPriority {
   font-family: Font Awesome 5 Free, fa-solid-900;
   font-weight: 900; 
+}
+
+.noPriority {
+display: none;
 }

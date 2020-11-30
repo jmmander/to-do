@@ -4,23 +4,23 @@
         <a class="edit" (click)="makeEditable()"> <fa-icon [icon]=faEdit> </fa-icon></a>
         <input type="text" class="todoItem" [(ngModel)]="todo.text" [readonly]="readOnly"/>
     </div>
-    <div class="priorityFlag col-3">
-        <div class="=row">
-            <div class=col-3>
-                <fa-icon [ngClass]=getPriority() [icon]=faFlag *ngIf="readOnly; else selectBlock"></fa-icon>
-                <ng-template #selectBlock>
-                    <select class='todoPriortiy' [(ngModel)]="todo.priority">
-                        <option class="high" value='high'>High</option>
-                        <option class="medium" value='medium'>Medium</option>
-                        <option class="low" value='low'>Low</option>
-                    </select>
-                </ng-template> 
-            </div>
+    <div class="priorityFlag col-1">
 
-            <div class=col-9>
-                <input type="date" class="todoDate"  [ngModel]="todo.dueDate" (ngModelChange)="todo.dueDate=$event" ngValue="{{todo.dueDate}}" [readonly]="readOnly" *ngIf="todo.dueDate!==null"/>
-            </div>
-        </div>
+        <fa-icon [ngClass]=getPriority() [icon]=faFlag *ngIf="readOnly; else selectBlock"></fa-icon>
+        <ng-template #selectBlock>
+            <select class='todoPriortiy' [(ngModel)]="todo.priority">
+                <option class="high" value='high'>High</option>
+                <option class="medium" value='medium'>Medium</option>
+                <option class="low" value='low'>Low</option>
+            </select>
+        </ng-template> 
+    </div>
+
+    <div class="due col-2">
+    
+        <input type="date" class="todoDate"  [ngModel]="todo.dueDate" (ngModelChange)="todo.dueDate=$event" ngValue="{{todo.dueDate}}" [readonly]="readOnly" *ngIf="todo.dueDate!==null"/>
+    
+      
     </div>
     <div class="button-container col-2" >
         <ng-container *ngIf="!todo.complete" >
