@@ -20,7 +20,7 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.todos = this.todoService.getTodos();
+    this.getTodos()
   }
 
   toggleVis(selection: string): void {
@@ -36,8 +36,10 @@ export class TodoListComponent implements OnInit {
       this.showIncomplete = true;
       this.showComplete = false;
     }
-    
-    
+  }
+
+  getTodos() : void {
+    this.todoService.getTodos().subscribe(todos => this.todos = todos);
   }
   
 

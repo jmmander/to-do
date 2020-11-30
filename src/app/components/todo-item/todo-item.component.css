@@ -87,11 +87,11 @@
 }
 
 .medium {
-  color: rgba(248, 248, 95, 0.9);
+  color: rgba(248, 220, 95, 0.9);
 }
 
 .low {
-  color: rgba(98, 236, 139, 0.8);
+  color: rgba(137, 235, 213, 0.8);
 }
 
 .priorityFlag  {

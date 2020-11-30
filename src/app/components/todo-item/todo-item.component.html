@@ -18,9 +18,8 @@
 
     <div class="due col-2">
     
-        <input type="date" class="todoDate"  [ngModel]="todo.dueDate" (ngModelChange)="todo.dueDate=$event" ngValue="{{todo.dueDate}}" [readonly]="readOnly" *ngIf="todo.dueDate!==null"/>
+        <input type="date" class="todoDate"  [ngModel]="todo.dueDate" (ngModelChange)="todo.dueDate=$event" ngValue="{{todo.dueDate}}" [readonly]="readOnly" *ngIf="todo.dueDate!==null || !readOnly"/>
     
-      
     </div>
     <div class="button-container col-2" >
         <ng-container *ngIf="!todo.complete" >
