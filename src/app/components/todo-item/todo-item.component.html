@@ -1,19 +1,38 @@
 
-<div class="todoWrapper" (clickOutside)="saveEdit()" (keyup.enter)="saveEdit()">
+<div class="todoWrapper row" (clickOutside)="saveEdit()" (keyup.enter)="saveEdit()">
+    <div class=col-7>
+        <a class="edit" (click)="makeEditable()"> <fa-icon [icon]=faEdit> </fa-icon></a>
+        <input type="text" class="todoItem" [(ngModel)]="todo.text" [readonly]="readOnly"/>
+    </div>
+    <div class="priorityFlag col-3">
+        <div class="=row">
+            <div class=col-3>
+                <fa-icon [ngClass]=getPriority() [icon]=faFlag *ngIf="readOnly; else selectBlock"></fa-icon>
+                <ng-template #selectBlock>
+                    <select class='todoPriortiy' [(ngModel)]="todo.priority">
+                        <option class="high" value='high'>High</option>
+                        <option class="medium" value='medium'>Medium</option>
+                        <option class="low" value='low'>Low</option>
+                    </select>
+                </ng-template> 
+            </div>
 
-    <a class="edit" (click)="makeEditable()"> <fa-icon [icon]=faEdit> </fa-icon></a>
+            <div class=col-9>
+                <input type="date" class="todoDate"  [ngModel]="todo.dueDate" (ngModelChange)="todo.dueDate=$event" ngValue="{{todo.dueDate}}" [readonly]="readOnly" *ngIf="todo.dueDate!==null"/>
+            </div>
+        </div>
+    </div>
+    <div class="button-container col-2" >
+        <ng-container *ngIf="!todo.complete" >
+                <button class="btn completeTodo" (click)="completeTodo(todo)">✔</button>  
+                <a class="removeTodo" (click)="removeTodo()"> <fa-icon [icon]=faTrashAlt> </fa-icon></a>
+        </ng-container>
+    
 
-    <input type="text" class="todoItem" value={{todo.text}} [(ngModel)]="todo.text" [readonly]="readOnly"/>
-
-    <ng-container class="button-container" *ngIf="!todo.complete">
-        <button class="btn completeTodo" (click)="completeTodo(todo)">✔</button>  
-        <a class="removeTodo" (click)="removeTodo('complete')"> <fa-icon [icon]=faTrashAlt> </fa-icon></a>
-    </ng-container>
-
-    <ng-container class="button-container" *ngIf="todo.complete">
-        <button class="btn uncompleteTodo">✔</button>  
-        <a class="removeTodo" (click)="removeTodo('complete')"> <fa-icon [icon]=faTrashAlt> </fa-icon></a>
-    </ng-container>
-
+        <ng-container *ngIf="todo.complete">
+                <button class="btn uncompleteTodo">✔</button>  
+                <a class="removeTodo" (click)="removeTodo()"> <fa-icon [icon]=faTrashAlt> </fa-icon></a>
+        </ng-container>
+    </div>
 
 </div>

@@ -21,8 +21,12 @@
     border-top: 2px solid rgba(73, 204, 249, 1.0);
     border-bottom: 2px solid rgba(73, 204, 249, 1.0);
     margin-right: 10px;
-    padding: 5px;
     line-height: 17px;
+    font-size: 13.5px;
+  }
+
+  input{
+    padding: 5px;
   }
   
   .textInput {
@@ -48,4 +52,8 @@
 
   select {
     color: gray;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    padding-left: 5px;
   }

@@ -4,8 +4,8 @@
     margin-bottom: 10px;
 
   }
-  .buttonContainer {
-    text-align: right;
+  .button-container {
+    align-items: right;
   }
   .todoItem:read-only{
     outline: none;
@@ -16,7 +16,7 @@
   .todoItem {
     font-size: large;
     margin-right: 10px;
-    width: 78%;
+  
   }
 
   .edit {
@@ -30,8 +30,8 @@
   }
 
   .btn {
-    margin-right: 20px;
-    margin-bottom: 10px;
+    margin-right: 10px;
+
     outline: none;
     box-shadow: none;
     border-width: 2px;
@@ -83,5 +83,37 @@
   background-color: rgba(71, 187, 48, 0.3);;
 }
 
+.high {
+  color: rgba(238, 73, 67, 0.8);
+}
 
+.medium {
+  color: rgba(248, 248, 95, 0.9);
+}
 
+.low {
+  color: rgba(98, 236, 139, 0.8);
+}
+
+.priorityFlag  {
+  margin-bottom: 10px;
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.todoDate {
+  margin-bottom: 10px;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  overflow: hidden;
+  font-size: smaller;
+  max-width: fit-content;
+
+}
+
+.todoPriority {
+  font-family: Font Awesome 5 Free, fa-solid-900;
+  font-weight: 900; 
+}

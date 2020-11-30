@@ -11,7 +11,11 @@ export class TodoService {
   nextId: number
 
   constructor() { 
-    this.todos = [];
+    this.todos = [
+      new Todo(0,"test 1", "high", null, false),
+      new Todo(1,"test 2", "medium", new Date(), false),
+      new Todo(1,"test 2", "low", new Date(), true)
+    ];
     this.nextId = 0;
 
 
@@ -35,15 +39,8 @@ export class TodoService {
   }
 
 
-  updateTodo(updatedText: string, id: number) : void {
-    console.log("before")
-    let index = this.todos.findIndex(todo => {todo.id === id});
-    console.log(this.todos[index]) 
-    this.todos[index].text = updatedText;
-    console.log("after")
-    console.log(this.todos[index]) 
+  updateTodo(todo: Todo, field: string, updated: any) : void {
   }
-
 
   }
 

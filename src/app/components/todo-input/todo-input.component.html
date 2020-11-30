@@ -4,7 +4,7 @@
         <select class="priorityInput" formControlName="todoPriority" (click)="changeColor()" id="prioritySelector">
             <option value="null" selected hidden >Priority </option> 
             <option value="high">High </option>
-            <option value="med">Medium </option>
+            <option value="medium">Medium </option>
             <option value="low">Low </option>
         </select>
         <input type="text" formControlName="todoDueDate" class="dateInput" placeholder="Due Date" onfocus="(this.type='date')" [min]="today"/>

@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Todo} from '../../classes/todo';
 import { TodoService } from '../../services/todo.service';
-import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faFlag } from '@fortawesome/free-solid-svg-icons';
+
+
 
 
 
@@ -19,6 +21,7 @@ export class TodoItemComponent implements OnInit {
   readOnly = true;
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
+  faFlag = faFlag;
 
   constructor(private todoService: TodoService) { 
   }
@@ -45,6 +48,9 @@ export class TodoItemComponent implements OnInit {
     this.todo.complete = true;
   }
 
-
+  getPriority() {
+    return this.todo.priority.toString();
+    
+  }
 
 }
